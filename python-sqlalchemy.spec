@@ -8,7 +8,7 @@ Summary:	SQL toolkit and object relational mapper for Python
 
 Name:		python-sqlalchemy
 Version:	1.0.13
-Release:	2
+Release:	3
 License:	MIT
 Group:		Development/Python
 Url:		http://www.sqlalchemy.org/
