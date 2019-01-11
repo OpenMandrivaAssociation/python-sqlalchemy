@@ -7,12 +7,12 @@
 Summary:	SQL toolkit and object relational mapper for Python
 
 Name:		python-sqlalchemy
-Version:	1.0.13
-Release:	3
+Version:	1.2.12
+Release:	1
 License:	MIT
 Group:		Development/Python
 Url:		http://www.sqlalchemy.org/
-Source0:	http://pypi.python.org/packages/source/S/SQLAlchemy/SQLAlchemy-%{version}.tar.gz
+Source0:	https://pypi.io/packages/source/S/SQLAlchemy/SQLAlchemy-%{version}.tar.gz
 BuildRequires:	python-nose
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
@@ -29,10 +29,10 @@ supports MySQL, Postgres, Oracle, and SQLite.
 %setup -qn %{module_name}-%{version}
 
 %build
-%__python setup.py build
+%__%py_build
 
 %install
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --skip-build --root=%{buildroot} --install-purelib=%{py_platlibdir}
+PYTHONDONTWRITEBYTECODE= python setup.py install --skip-build --root=%{buildroot} --install-purelib=%{py_platlibdir}
 
 #%check
 #%__python setup.py test

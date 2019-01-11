@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   SQLAlchemy-1.0.13.tar.gz: 80b5631316144cac4d37f9eab4e8801d8501f1e1
+sources:
+  SQLAlchemy-1.2.12.tar.gz: f97cdaaae67fdf99d988ad7caf0b6938c1fc8680
