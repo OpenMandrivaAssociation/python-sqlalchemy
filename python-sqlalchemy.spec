@@ -7,12 +7,12 @@
 Summary:	SQL toolkit and object relational mapper for Python
 
 Name:		python-sqlalchemy
-Version:	1.3.15
+Version:	1.3.16
 Release:	1
 License:	MIT
 Group:		Development/Python
 Url:		http://www.sqlalchemy.org/
-Source0:	https://files.pythonhosted.org/packages/8c/30/4134e726dd5ed13728ff814fa91fc01c447ad8700504653fe99d91fdd34b/SQLAlchemy-1.3.15.tar.gz
+Source0:	https://files.pythonhosted.org/packages/7f/4b/adfb1f03da7f50db054a5b728d32dbfae8937754cfa159efa0216a3758d1/SQLAlchemy-1.3.16.tar.gz
 BuildRequires:	python-nose
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
