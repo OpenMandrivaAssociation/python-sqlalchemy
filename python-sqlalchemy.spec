@@ -1,4 +1,4 @@
-%define debug_package %{nil}
+#%%define debug_package %nil
 %define module_name SQLAlchemy
 %ifarch %arm %mips
 %define debug_package %nil
@@ -7,12 +7,12 @@
 Summary:	SQL toolkit and object relational mapper for Python
 
 Name:		python-sqlalchemy
-Version:	1.3.22
+Version:	1.4.19
 Release:	1
 License:	MIT
 Group:		Development/Python
 Url:		http://www.sqlalchemy.org/
-Source0:	https://files.pythonhosted.org/packages/b7/10/b6d02efa2cb10dca0671fd62c9091c1e49831b266658fd7a056c577621cb/SQLAlchemy-1.3.22.tar.gz
+Source0:	https://files.pythonhosted.org/packages/b7/10/b6d02efa2cb10dca0671fd62c9091c1e49831b266658fd7a056c577621cb/SQLAlchemy-%{version}.tar.gz
 BuildRequires:	python-nose
 BuildRequires:	python-setuptools
 BuildRequires:	pkgconfig(python)
@@ -29,10 +29,12 @@ supports MySQL, Postgres, Oracle, and SQLite.
 %setup -qn %{module_name}-%{version}
 
 %build
-%__python setup.py build
+%py3_build
+#%%__python setup.py build
 
 %install
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --skip-build --root=%{buildroot} --install-purelib=%{py_platlibdir}
+%py3_install
+#PYTHONDONTWRITEBYTECODE= %__python setup.py install --skip-build --root=%{buildroot} --install-purelib=%{py_platlibdir}
 
 #%check
 #%__python setup.py test
