@@ -11,7 +11,7 @@ Version:	1.4.31
 Release:	2
 License:	MIT
 Group:		Development/Python
-Url:		http://www.sqlalchemy.org/
+Url:		https://www.sqlalchemy.org/
 Source0:	https://files.pythonhosted.org/packages/0f/80/d8883f12689a55e333d221bb9a56c727e976f5a8e9dc862efeac9f40d296/SQLAlchemy-1.4.31.tar.gz
 BuildRequires:	python-nose
 BuildRequires:	python-setuptools
