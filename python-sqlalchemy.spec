@@ -6,7 +6,7 @@
 %bcond_without test
 
 Name:		python-sqlalchemy
-Version:	2.0.40
+Version:	2.0.41
 Release:	1
 Summary:	SQL toolkit and object relational mapper for Python
 URL:		https://www.sqlalchemy.org/
