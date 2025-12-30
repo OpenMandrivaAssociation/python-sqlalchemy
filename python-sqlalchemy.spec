@@ -7,7 +7,7 @@
 
 Name:		python-sqlalchemy
 Version:	2.0.41
-Release:	1
+Release:	2
 Summary:	SQL toolkit and object relational mapper for Python
 URL:		https://www.sqlalchemy.org/
 License:	MIT
