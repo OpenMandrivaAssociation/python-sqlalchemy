@@ -3,23 +3,23 @@
 %ifarch %arm %mips
 %define debug_package %nil
 %endif
-%bcond_without test
+%bcond test 1
 
 Name:		python-sqlalchemy
-Version:	2.0.41
-Release:	2
+Version:	2.0.45
+Release:	1
 Summary:	SQL toolkit and object relational mapper for Python
 URL:		https://www.sqlalchemy.org/
 License:	MIT
 Group:		Development/Python
-Source0:	https://files.pythonhosted.org/packages/source/s/sqlalchemy/%{module}-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/s/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tag.gz
 BuildSystem: python
-
 BuildRequires:	python
-BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(cython)
+BuildRequires:	python%{pyver}dist(wheel)
 %if %{with test}
 BuildRequires:	python%{pyver}dist(pytest)
 BuildRequires:	python%{pyver}dist(pytest-asyncio)
@@ -54,10 +54,10 @@ sed -i 's/\r$//' examples/dynamic_dict/dynamic_dict.py
 
 %build
 export CFLAGS="%{optflags} -fno-strict-aliasing"
-%py3_build
+%py_build
 
 %install
-%py3_install
+%py_install
 
 %if %{with test}
 %check
@@ -68,8 +68,8 @@ export CFLAGS="%{optflags} -fno-strict-aliasing"
 %endif
 
 %files
-%{python3_sitearch}/sqlalchemy
-%{python3_sitearch}/%{module}-%{version}.dist-info/
+%{python_sitearch}/sqlalchemy
+%{python_sitearch}/%{module}-%{version}.dist-info/
 %doc CHANGES.rst README.rst README.dialects.rst README.unittests.rst
 %license LICENSE
 
