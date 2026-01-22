@@ -6,7 +6,7 @@
 %bcond test 1
 
 Name:		python-sqlalchemy
-Version:	2.0.45
+Version:	2.0.46
 Release:	1
 Summary:	SQL toolkit and object relational mapper for Python
 URL:		https://www.sqlalchemy.org/
@@ -30,7 +30,7 @@ BuildRequires:	python%{pyver}dist(typing-extensions)
 Suggests:	%{name}-doc = %{version}-%{release}
 
 %description
-%{module_name} is a SQL toolkit and object relational mapper for Python. It
+%{module} is a SQL toolkit and object relational mapper for Python. It
 encourages "relational mapping" as opposed to "table mapping" and includes
 enterprise-level features such as eager loading, unit-of-work object commits,
 topological dependency sorting, and full usage of bind parameters. It
@@ -45,25 +45,22 @@ BuildArch:	noarch
 This package contains the HTML documentation, tutorials and API
 reference for %{name}.
 
-%prep
-%autosetup -n %{module}-%{version} -p1
-
+%prep -a
 # Remove unnecessary scripts for building docs
 rm -rf doc/build
 sed -i 's/\r$//' examples/dynamic_dict/dynamic_dict.py
 
-%build
+%build -p
 export CFLAGS="%{optflags} -fno-strict-aliasing"
-%py_build
-
-%install
-%py_install
+export LDFLAGS="%{ldflags} -lpython%{pyver}"
 
 %if %{with test}
 %check
 # we dont need to stress-test our own builders here,
 # run tests only to ensure the regular tests pass.
-%__python -m pytest -v -q --nomemory --notimingintensive --nomypy \
+export CI=true
+export PYTHONPATH="%{buildroot}%{python_sitearch}:${PWD}"
+pytest -q --nomemory --notimingintensive --nomypy \
 -k "not test_parseconnect and not CreateEngineTest and not test_bad_args and not test_includes_none and not test_pep695_value"
 %endif
 
