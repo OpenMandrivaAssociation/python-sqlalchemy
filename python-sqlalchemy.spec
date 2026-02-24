@@ -6,13 +6,13 @@
 %bcond test 1
 
 Name:		python-sqlalchemy
-Version:	2.0.46
+Version:	2.0.47
 Release:	1
 Summary:	SQL toolkit and object relational mapper for Python
 URL:		https://www.sqlalchemy.org/
 License:	MIT
 Group:		Development/Python
-Source0:	https://files.pythonhosted.org/packages/source/s/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tag.gz
+Source0:	https://files.pythonhosted.org/packages/source/s/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildSystem: python
 BuildRequires:	python
 BuildRequires:	pkgconfig(python)
@@ -46,6 +46,8 @@ This package contains the HTML documentation, tutorials and API
 reference for %{name}.
 
 %prep -a
+# Remove bundled egg-info
+rm -rf lib/SQLAlchemy.egg-info
 # Remove unnecessary scripts for building docs
 rm -rf doc/build
 sed -i 's/\r$//' examples/dynamic_dict/dynamic_dict.py
