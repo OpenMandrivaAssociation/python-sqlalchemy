@@ -7,7 +7,7 @@
 
 Name:		python-sqlalchemy
 Version:	2.0.51
-Release:	1
+Release:	2
 Summary:	SQL toolkit and object relational mapper for Python
 URL:		https://www.sqlalchemy.org/
 License:	MIT
@@ -15,7 +15,7 @@ Group:		Development/Python
 Source0:	https://files.pythonhosted.org/packages/source/s/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildSystem: python
 BuildRequires:	python
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(cython)
